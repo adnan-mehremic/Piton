@@ -1,7 +1,10 @@
 # Python game "Piton"
 
 
-import pygame, sys, random, time
+import pygame
+import sys
+import random
+import time
 
 check_errors = pygame.init()
 
@@ -24,3 +27,13 @@ blue = pygame.Color(0, 0, 255)
 black = pygame.Color(0, 0, 0) # for score
 white = pygame.Color(255, 255, 255) # for background
 brown = pygame.Color(165, 42, 42) # for food
+
+# FPS controller
+fpsController = pygame.time.Clock()
+
+# Variables
+snakePos = [100, 50]
+snakeBody = [[100,50], [90,50], [80,50]]
+
+foodPos = [random.randrange(1,72)*10, random.randrange(1,46)*10]
+foodSpawn = True
