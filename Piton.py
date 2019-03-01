@@ -37,3 +37,7 @@ snakeBody = [[100,50], [90,50], [80,50]]
 
 foodPos = [random.randrange(1,72)*10, random.randrange(1,46)*10]
 foodSpawn = True
+
+direction = 'RIGHT'
+changeto = direction
+
