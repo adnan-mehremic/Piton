@@ -41,3 +41,15 @@ foodSpawn = True
 direction = 'RIGHT'
 changeto = direction
 
+# game over function
+
+def gameOver():
+    myFont = pygame.font.SysFont('monaco', 70)
+    GOsurf = myFont.render('Game over!', True, red)
+    GOrect = GOsurf.get_rect()
+    GOrect.midtop = (360, 20)
+    playSurface.blit(GOsurf, GOrect)
+    pygame.display.flip()
+
+gameOver()
+time.sleep(10)
