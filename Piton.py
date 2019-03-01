@@ -67,9 +67,9 @@ while True:
             if event.key == pygame.K_LEFT:
                 changeto = 'LEFT'
             if event.key == pygame.K_UP:
-                changeto = 'UP'
-            if event.key == pygame.K_DOWN:
                 changeto = 'DOWN'
+            if event.key == pygame.K_DOWN:
+                changeto = 'UP'
             if event.key == pygame.K_ESCAPE:
                 pygame.event.post(pygame.event.Event(QUIT))
 
@@ -105,7 +105,12 @@ while True:
                    random.randrange(1, 46) * 10]
         foodSpawn = True
 
-
+    playSurface.fill(white)
+    for pos in snakeBody:
+        pygame.draw.rect(playSurface, green,
+                         pygame.Rect(pos[0], pos[1], 10, 10))
+    pygame.display.flip()
+    fpsController.tick(25)
 
 
 
