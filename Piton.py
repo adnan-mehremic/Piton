@@ -84,6 +84,29 @@ while True:
     if changeto == 'DOWN' and not direction == 'UP':
         direction = "DOWN"
 
+    # update snake position [x,y]
+    if direction == 'RIGHT':
+        snakePos[0] += 10
+    if direction == 'LEFT':
+        snakePos[0] -= 10
+    if direction == 'UP':
+        snakePos[1] += 10
+    if direction == 'DOWN':
+        snakePos[1] -= 10
+
+    # snake body
+    snakeBody.insert(0, list(snakePos))
+    if snakePos[0] == foodPos[0] and snakePos[1] == foodPos[1]:
+        foodSpawn = False
+    else:
+        snakeBody.pop()
+    if foodSpawn == False:
+        foodPos = [random.randrange(1, 72) * 10,
+                   random.randrange(1, 46) * 10]
+        foodSpawn = True
+
+
+
 
 
 
