@@ -50,6 +50,29 @@ def gameOver():
     GOrect.midtop = (360, 20)
     playSurface.blit(GOsurf, GOrect)
     pygame.display.flip()
+    time.sleep(4)
+    pygame.quit()  # game exit
+    pygame.exit()  # console exit
 
-gameOver()
-time.sleep(10)
+# Main Logic of the game
+
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_RIGHT:
+                changeto = 'RIGHT'
+            if event.key == pygame.K_LEFT:
+                changeto = 'LEFT'
+            if event.key == pygame.K_UP:
+                changeto = 'UP'
+            if event.key == pygame.K_DOWN:
+                changeto = 'DOWN'
+            if event.key == pygame.K_ESCAPE:
+                pygame.event.post(pygame.event.Event(QUIT))
+
+
+
+
