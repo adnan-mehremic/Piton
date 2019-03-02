@@ -105,12 +105,21 @@ while True:
                    random.randrange(1, 46) * 10]
         foodSpawn = True
 
+    # Background
     playSurface.fill(white)
+
+    # Draw snake
     for pos in snakeBody:
         pygame.draw.rect(playSurface, green,
                          pygame.Rect(pos[0], pos[1], 10, 10))
+
+    # Draw food
+    pygame.draw.rect(playSurface, brown,
+                     pygame.Rect(foodPos[0], foodPos[1], 10, 10))
+    
     pygame.display.flip()
-    fpsController.tick(25)
+    fpsController.tick(23)
+
 
 
 
