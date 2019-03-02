@@ -43,19 +43,19 @@ changeto = direction
 score = 0
 
 # game over function
-
 def gameOver():
     myFont = pygame.font.SysFont('monaco', 70)
     GOsurf = myFont.render('Game over!', True, red)
     GOrect = GOsurf.get_rect()
     GOrect.midtop = (360, 20)
     playSurface.blit(GOsurf, GOrect)
-    pygame.display.flip()
     showScore(0)
+    pygame.display.flip()
     time.sleep(4)
     pygame.quit()  # game exit
     sys.exit()  # console exit
 
+# show score function
 def showScore(choice = 1):
     score_font = pygame.font.SysFont('monaco', 30)
     score_surf = score_font.render('Score: {0}'.format(score), True, black)
@@ -65,12 +65,8 @@ def showScore(choice = 1):
     else:
         score_rect.midtop = (360, 120)
     playSurface.blit(score_surf, score_rect)
-    pygame.display.flip()
-
-
 
 # Main Logic of the game
-
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -86,10 +82,9 @@ while True:
             if event.key == pygame.K_DOWN:
                 changeto = 'UP'
             if event.key == pygame.K_ESCAPE:
-                pygame.event.post(pygame.event.Event(QUIT))
+                pygame.event.post(pygame.event.Event(pygame.QUIT))
 
     # validation of direction
-
     if changeto == 'RIGHT' and not direction == 'LEFT':
         direction = "RIGHT"
     if changeto == 'LEFT' and not direction == 'RIGHT':
@@ -139,17 +134,11 @@ while True:
     if snakePos[1] > 450 or snakePos[1] < 0:
         gameOver()
 
+    # self hit snake
     for block in snakeBody[1:]:
         if snakePos[0] == block[0] and snakePos[1] == block[1]:
             gameOver()
 
-    pygame.display.flip()
     showScore()
+    pygame.display.flip()
     fpsController.tick(23)
-
-
-
-
-
-
-
